@@ -30,25 +30,32 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 Toplama işlemi
+
 ```{r}
 5+2
 
 ```
+
 bölme işlemi
+
 ```{r}
 10/2
 ```
 
-üslü sayılarda işlemler 
+üslü sayılarda işlemler
+
 ```{r}
 3 ^ 2
 ```
+
 mod bulma yani kalan
+
 ```{r}
 5 %% 3
 ```
 
 atama yapma
+
 ```{r}
  x <- 10
 print(x)
@@ -71,7 +78,8 @@ my_total <- my_value + my_value2
 print(my_total)
 ```
 
-yanlış çünkü anlamadı karakter olduğu için 
+yanlış çünkü anlamadı karakter olduğu için
+
 ```{r}
 my_value <- 10
 my_value2 <- 20
@@ -86,7 +94,6 @@ my_numeric <- 52.5
 ```{r}
 my_numeric <- 54
 ```
-
 
 ```{r}
 my_character <- "some text"
@@ -145,7 +152,6 @@ names(some_vector) <- c("name","proffession")
 print(some_vector)
 ```
 
-
 ```{r}
 weight = c(200, -100, 300, -120, 240)
 names(weight) <- c("monday","tuesday","wed","thursday","fri")
@@ -156,7 +162,6 @@ print(weight)
 sugar <- c(500,-200, 700,-300,600)
 
 ```
-
 
 ```{r}
 
@@ -177,14 +182,12 @@ print(c)
 
 ```
 
-
 ```{r}
 x_vector <- c(1,2,3)
 y_vector <- c(4,5,6)
 total_vector <- x_vector + y_vector
 print(total_vector)
 ```
-
 
 ```{r}
 total_sugar <- sum(sugar)
@@ -229,4 +232,113 @@ weight_gaining_days <- weight[selection_vector]
 
 ```
 
+```{r}
+a = matrix(1:16,byrow =TRUE ,nrow =4)
+View(a)
+```
+
+```{r}
+jeans = c(200,300)
+pullover = c(100,150)
+coat = c(400,700)
+
+```
+
+```{r}
+price = c(jeans,pullover,coat)
+price_matrix <- matrix(price,nrow=3,byrow=TRUE)
+
+
+```
+
+```{r}
+rownames(my_matrix) <- row_names_vector
+colnames(my_matrix) <- col_names_vector
+
+
+```
+
+```{r}
+price_s = c("shop1", "shop2")
+item = c("jeans", "pullover","coat")
+rownames(price_matrix) <- item
+colnames(price_matrix) <- price_s
+print(price_matrix)
+
+```
+
+
+
+
+```{r}
+rowSums(price_matrix)
+
+```
+iki vektörü birleştirmek için cband a gerek yok price = c ( ) ile bireştirirsin cbind için column olmak zorunda ve row sayısı aynı olmalı
+```{r}
+total_shops =rowSums(price_matrix)
+price_matrix_total = cbind(price_matrix, total_shops)
+````
+# AND COMBİNE TWO MATRİCES totalde sonsıra
+```{r}
+boots = c (600, 900)
+hat = c(100, 200)
+purse = c(300,600)
+price2= c(boots, hat,purse)
+price_matrix2 = matrix(price2,nrow=3,byrow= TRUE)
+
+price_s= c("shop1", "shop2")
+item2 = c("boots" , "hat", "purse")
+rownames(price_matrix2) <- item2
+colnames(price_matrix2) <- price_s
+total = rbind(price_matrix,price_matrix2)
+print(total)
+
+```
+columnları toplamak için colSums
+rowları toplamak için rowSums
+```{r}
+colSums(total)
+rowSums(total)
+
+```
+
+```{r}
+shop2_sales = total[,2]
+print(shop2_sales)
+sum(shop2_sales)/6
+mean(shop2_sales)
+
+some_items = total[1:2,2]
+mean(some_items)
+
+```
+
+```{r}
+multiply_matrix = total * 3
+print(multiply_matrix)
+```
+
+```{r}
+sum(price_matrix + price_matrix2)
+```
+
+```{r}
+price_matrix*price_matrix2
+```
+row ya da column silmek için kullanıyoruz
+```{r}
+price_matrix2 = price_matrix2[,-2]
+View(total)
+print(price_matrix2)
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
 
